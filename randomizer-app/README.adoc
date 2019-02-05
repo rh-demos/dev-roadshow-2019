@@ -1,0 +1,15 @@
+= Very simple implementation of a Randomizer
+
+Run locally with
+----
+$ mvn mvn thorntail:run
+----
+
+To deploy to OpenShift
+----
+$ oc login -u developer -p developer
+
+$ oc new-project MY_PROJECT_NAME
+
+$ mvn clean fabric8:deploy -Popenshift
+----
