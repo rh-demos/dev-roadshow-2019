@@ -1,8 +1,10 @@
 = Very simple implementation of a Randomizer
 
+This is a very simple version of the randomizer, which is only useful to show the idea of what an implementation should look like. There can only be one instance of the randomizer running, due to an oversimplified implementation of the caching mechanism (Singleton + LinkedList).
+
 Run locally with
 ----
-$ mvn mvn thorntail:run
+$ mvn thorntail:run
 ----
 
 To deploy to OpenShift
