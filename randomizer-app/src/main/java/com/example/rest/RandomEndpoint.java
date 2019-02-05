@@ -41,6 +41,13 @@ public class RandomEndpoint {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/{id}")
   public Random getById(@PathParam("id") Long id) {
+	  //sleep random time to make monitoring more interesting
+	  try {
+		  Thread.sleep((long) (Math.random() * 2000));
+	  } catch (InterruptedException e) {
+		  e.printStackTrace();
+	  }
+	  
 	  //linear search
 	  for (Random random : randomNumbers) {
 		if(random.getId().equals(id)) {
