@@ -10,3 +10,5 @@ $ oc login -u developer -p developer
 $ oc new-project MY_PROJECT_NAME
 ----
 
+Currently only a very simple randomizer is implemented. When you've deployed the randomizer and the test client, You can try out the idea by accessing:
+http://test-client-<MY_PROJECT_NAME>.<my ocp app url>/readings
