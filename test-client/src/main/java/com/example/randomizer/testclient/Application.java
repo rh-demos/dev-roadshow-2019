@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
+import com.example.randomizer.testclient.scheduler.TestClientServiceDiscovery;
 
 @SpringBootApplication
 @EnableScheduling
@@ -20,6 +21,11 @@ public class Application {
     @Bean
     public StaticTestClientReadings getStaticTestClientLocations() {
     	return new StaticTestClientReadings();
+    }
+
+    @Bean
+    public TestClientServiceDiscovery getTestClientServiceDiscovery() {
+    	return new TestClientServiceDiscovery();
     }
 }
 

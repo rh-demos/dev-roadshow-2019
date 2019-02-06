@@ -22,14 +22,17 @@ public class TestClientScheduler {
 	private static final int NUMBER_OF_CONCURRENT_REQUESTS = 100;
 	private static final int NUMBER_OF_RANDOM_NUMBERS = 40;
 	
+//	@Autowired
+//	private StaticTestClientReadings staticTestClientReadings;
+
 	@Autowired
-	private StaticTestClientReadings staticTestClientReadings;
-	
+	private TestClientServiceDiscovery testClientServiceDiscovery;
+
 	@Scheduled(fixedRate=5000)
 	public void doScheduledTask() {
 		System.out.println("starting tests");
 		System.out.println("**********************************");
-		for(ClientServiceReading reading: staticTestClientReadings.getClientServiceReadings()) {
+		for(ClientServiceReading reading: testClientServiceDiscovery.getClientServiceReadings()) {
 			Thread[] threads = new Thread[NUMBER_OF_CONCURRENT_REQUESTS];
 			long[] responseTimes = new long[NUMBER_OF_CONCURRENT_REQUESTS];
 			for(int i = 0; i < NUMBER_OF_CONCURRENT_REQUESTS; i++) {

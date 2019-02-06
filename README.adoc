@@ -8,6 +8,7 @@ Before installing any of the sub components, make sure to create a project for y
 ----
 $ oc login -u developer -p developer
 $ oc new-project MY_PROJECT_NAME
+$ oc policy add-role-to-user view system:serviceaccount:<MY_PROJECT_NAME>:default
 ----
 
 Currently only a very simple randomizer is implemented. When you've deployed the randomizer and the test client, You can try out the idea by accessing:
