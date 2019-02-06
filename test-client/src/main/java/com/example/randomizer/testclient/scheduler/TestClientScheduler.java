@@ -3,6 +3,8 @@ package com.example.randomizer.testclient.scheduler;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,12 +29,14 @@ public class TestClientScheduler {
 
 	@Autowired
 	private TestClientServiceDiscovery testClientServiceDiscovery;
-
+		
 	@Scheduled(fixedRate=5000)
 	public void doScheduledTask() {
+		ArrayList<ClientServiceReading> newClientServiceReadings =
+				new ArrayList<ClientServiceReading>();
 		System.out.println("starting tests");
 		System.out.println("**********************************");
-		for(ClientServiceReading reading: testClientServiceDiscovery.getClientServiceReadings()) {
+		for(ClientServiceReading reading: testClientServiceDiscovery.getClientServiceEndpints()) {
 			Thread[] threads = new Thread[NUMBER_OF_CONCURRENT_REQUESTS];
 			long[] responseTimes = new long[NUMBER_OF_CONCURRENT_REQUESTS];
 			for(int i = 0; i < NUMBER_OF_CONCURRENT_REQUESTS; i++) {
@@ -59,7 +63,9 @@ public class TestClientScheduler {
 				e.printStackTrace();
 				reading.setLatestReading(4000);
 			}
+			newClientServiceReadings.add(reading);
 		}
+		testClientServiceDiscovery.setCurrentClientServiceReadings(newClientServiceReadings);
 		System.out.println("**********************************");
 	}
 	private long getAccessTimeInMs(String url) {

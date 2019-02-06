@@ -19,10 +19,10 @@ public class ReadingsController {
 
     @RequestMapping("/readings/{idx}")
     public ClientServiceReading clientServiceReadingById(@PathVariable int idx) {
-    	return testClientServiceDiscovery.getClientServiceReadings().get(idx);
+    	return testClientServiceDiscovery.getCurrentClientServiceReadings().get(idx);
     }
     @RequestMapping("/readings")
     public List<ClientServiceReading> clientServiceReading() {
-    	return testClientServiceDiscovery.getClientServiceReadings();
+    	return testClientServiceDiscovery.getCurrentClientServiceReadings();
     }
 }

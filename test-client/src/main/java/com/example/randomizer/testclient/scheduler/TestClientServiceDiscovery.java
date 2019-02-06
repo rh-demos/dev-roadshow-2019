@@ -11,8 +11,23 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 
 public class TestClientServiceDiscovery {
 	private static final String SERVICE_LABEL = "type=randomizer-service";
+	private List<ClientServiceReading> currentClientServiceReadings;
+	public TestClientServiceDiscovery() {
+		currentClientServiceReadings = new ArrayList<ClientServiceReading>();
+	}
+	
+	
+	public List<ClientServiceReading> getCurrentClientServiceReadings() {
+		return currentClientServiceReadings;
+	}
 
-	public List<ClientServiceReading> getClientServiceReadings() {
+
+	public void setCurrentClientServiceReadings(List<ClientServiceReading> currentClientServiceReadings) {
+		this.currentClientServiceReadings = currentClientServiceReadings;
+	}
+
+
+	public List<ClientServiceReading> getClientServiceEndpints() {
 		KubernetesClient client = null;
     	List<ClientServiceReading> endpoints = new ArrayList<ClientServiceReading>();
 		try {
@@ -33,4 +48,5 @@ public class TestClientServiceDiscovery {
         return endpoints;
     }
 
+	
 }
