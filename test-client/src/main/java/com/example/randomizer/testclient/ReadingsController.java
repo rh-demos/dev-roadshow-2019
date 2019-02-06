@@ -8,20 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.randomizer.model.ClientServiceReading;
-import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
+//import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
+import com.example.randomizer.testclient.scheduler.TestClientServiceDiscovery;
 
 @RestController
 public class ReadingsController {
 	
 	@Autowired
-	private StaticTestClientReadings staticTestClientReadings;
+	private TestClientServiceDiscovery testClientServiceDiscovery;
 
     @RequestMapping("/readings/{idx}")
     public ClientServiceReading clientServiceReadingById(@PathVariable int idx) {
-    	return staticTestClientReadings.getClientServiceReadings().get(idx);
+    	return testClientServiceDiscovery.getClientServiceReadings().get(idx);
     }
     @RequestMapping("/readings")
     public List<ClientServiceReading> clientServiceReading() {
-    	return staticTestClientReadings.getClientServiceReadings();
+    	return testClientServiceDiscovery.getClientServiceReadings();
     }
 }
