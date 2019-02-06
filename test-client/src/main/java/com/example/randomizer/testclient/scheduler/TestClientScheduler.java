@@ -19,7 +19,7 @@ import com.example.randomizer.model.Random;
 @Component
 public class TestClientScheduler {
 	
-	private static final int NUMBER_OF_CONCURRENT_REQUESTS = 100;
+	private static final int NUMBER_OF_CONCURRENT_REQUESTS = 10;
 	private static final int NUMBER_OF_RANDOM_NUMBERS = 40;
 	
 //	@Autowired
