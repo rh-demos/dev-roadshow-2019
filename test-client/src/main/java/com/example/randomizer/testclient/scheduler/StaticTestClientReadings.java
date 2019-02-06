@@ -10,7 +10,8 @@ public class StaticTestClientReadings {
 	
 	public StaticTestClientReadings() {
 		clientServiceReadings = new ArrayList<ClientServiceReading>();
-		clientServiceReadings.add(new ClientServiceReading("http://localhost:8080/randomizer/random"));
+//		clientServiceReadings.add(new ClientServiceReading("http://localhost:8080/randomizer/random"));
+		clientServiceReadings.add(new ClientServiceReading("http://randomizer-app.workshop-demo.svc:8080/randomizer/random"));
 	}
 	
 	public List<ClientServiceReading> getClientServiceReadings() {
