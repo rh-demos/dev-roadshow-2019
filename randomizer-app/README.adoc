@@ -14,4 +14,6 @@ $ oc new-app openshift/openjdk18-web-basic-s2i \
  -p APPLICATION_NAME=randomizer-app \
  -p SOURCE_REPOSITORY_URL=https://github.com/rh-demos/dev-roadshow-2019 \
  -p CONTEXT_DIR=randomizer-app
+ # finally label the service, so the test client inspects it
+ oc label svc randomizer-app type=randomizer-service
 ----
