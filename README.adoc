@@ -1,0 +1,12 @@
+= POC implementation for an idea for a workshop
+
+This project contains an idea for a workshop, where developers can compete on developing a specific app on openshift using the runtime of their choice.
+
+There is a test-client, which measure the performance of the application as well as a scoreboard to show the measurements.
+
+Before installing any of the sub components, make sure to create a project for your artifacts.
+----
+$ oc login -u developer -p developer
+$ oc new-project MY_PROJECT_NAME
+----
+
