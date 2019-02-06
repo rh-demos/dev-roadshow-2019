@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.randomizer.model.ClientServiceReading;
-
+/*
 public class StaticTestClientReadings {
 	private List<ClientServiceReading> clientServiceReadings;
 	
@@ -18,3 +18,4 @@ public class StaticTestClientReadings {
 		return clientServiceReadings;
 	}
 }
+*/

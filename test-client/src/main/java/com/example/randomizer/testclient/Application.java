@@ -18,10 +18,10 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
     
-    @Bean
-    public StaticTestClientReadings getStaticTestClientLocations() {
-    	return new StaticTestClientReadings();
-    }
+//    @Bean
+//    public StaticTestClientReadings getStaticTestClientLocations() {
+//    	return new StaticTestClientReadings();
+//    }
 
     @Bean
     public TestClientServiceDiscovery getTestClientServiceDiscovery() {
