@@ -3,14 +3,11 @@ package com.example.rest;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import com.example.model.Random;
 
-import java.util.Collection;
-import java.util.Hashtable;
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.ws.rs.Consumes;
@@ -31,7 +28,7 @@ public class RandomEndpoint {
   @Produces("application/json")
   public Random doGet() {
     if(randomNumbers.size() == 0) {
-      throw new IllegalArgumentException("there are no random numbers t the moment");
+      throw new IllegalArgumentException("there are no random numbers at the moment");
     }
     //do some slow stuff to find the number
     return randomNumbers.removeFirst();
@@ -41,13 +38,6 @@ public class RandomEndpoint {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/{id}")
   public Random getById(@PathParam("id") Long id) {
-	  //sleep random time to make monitoring more interesting
-	  try {
-		  Thread.sleep((long) (Math.random() * 2000));
-	  } catch (InterruptedException e) {
-		  e.printStackTrace();
-	  }
-	  
 	  //linear search
 	  for (Random random : randomNumbers) {
 		if(random.getId().equals(id)) {
@@ -56,12 +46,21 @@ public class RandomEndpoint {
 	  }
 	  return null;
   }
-
+/*
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   public void addRandomNumber(Random random) {
 	  System.out.println("Random number added: " + random.getRandom());
 	  randomNumbers.add(random);
+  }
+  */
+  @POST
+  @Consumes(MediaType.APPLICATION_JSON)
+  public void addRandomNumbers(List<Random> randomNumbers) {
+	  for(Random random: randomNumbers) {
+		  System.out.println("Random number added: " + random.getRandom());
+		  this.randomNumbers.add(random);
+	  }
   }
 }
 

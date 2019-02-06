@@ -11,7 +11,7 @@ import com.example.randomizer.model.ClientServiceReading;
 import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
 
 @RestController
-public class GreetingController {
+public class ReadingsController {
 
 	@Autowired
 	private StaticTestClientReadings staticTestClientReadings;
