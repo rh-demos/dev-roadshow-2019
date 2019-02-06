@@ -10,9 +10,8 @@ $ mvn thorntail:run
 
 To deploy to OpenShift
 ----
-$ oc login -u developer -p developer
-
-$ oc new-project MY_PROJECT_NAME
-
-$ mvn clean fabric8:deploy -Popenshift
+$ oc new-app openshift/openjdk18-web-basic-s2i \
+ -p APPLICATION_NAME=randomizer-app \
+ -p SOURCE_REPOSITORY_URL=https://github.com/rh-demos/dev-roadshow-2019 \
+ -p CONTEXT_DIR=randomizer-app
 ----

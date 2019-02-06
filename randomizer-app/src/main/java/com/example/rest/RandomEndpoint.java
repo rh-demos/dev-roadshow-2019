@@ -46,14 +46,7 @@ public class RandomEndpoint {
 	  }
 	  return null;
   }
-/*
-  @POST
-  @Consumes(MediaType.APPLICATION_JSON)
-  public void addRandomNumber(Random random) {
-	  System.out.println("Random number added: " + random.getRandom());
-	  randomNumbers.add(random);
-  }
-  */
+
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   public void addRandomNumbers(List<Random> randomNumbers) {
