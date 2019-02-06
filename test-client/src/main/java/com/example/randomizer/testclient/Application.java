@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
+//import com.example.randomizer.testclient.scheduler.StaticTestClientReadings;
 import com.example.randomizer.testclient.scheduler.TestClientServiceDiscovery;
 
 @SpringBootApplication
