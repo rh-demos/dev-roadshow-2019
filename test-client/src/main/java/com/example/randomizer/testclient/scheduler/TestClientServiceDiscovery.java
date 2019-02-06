@@ -20,7 +20,12 @@ public class TestClientServiceDiscovery {
 	        String namespace = client.getNamespace();
 	        List<Service> services = client.services().inNamespace(namespace).withLabel(SERVICE_LABEL).list().getItems();
 	        for(Service service: services) {
-	        	endpoints.add(new ClientServiceReading("http://" + service.getSpec().getClusterIP() + ":8080/randomizer/random"));
+	        	String url =
+	        			"http://" +
+	        			service.getMetadata().getName() + "." +
+	        			service.getMetadata().getNamespace() + ".svc" +
+	        			":8080/randomizer/random";
+	        	endpoints.add(new ClientServiceReading(url));
 	        }
 		} finally {
 			client.close();
